@@ -1,0 +1,91 @@
+#lion {
+    position: absolute;
+    top: 50px;
+    left: 850px;
+    width: 120px;
+}
+
+#Giraffe {
+    position: absolute;
+    bottom: 120px;
+    left: 750px;
+    width: 200px;
+    height: 200px;
+}
+
+#Elephant {
+
+    position: absolute;
+    top: 350px;
+    left: 290px;
+    width: 150px;
+}
+
+#Board1 {
+    position: absolute;
+    bottom: 40px;
+    left: 730px;
+    width: 150px;
+    height: 120px;
+}
+
+#Board2 {
+    position: absolute;
+    bottom: 100px;
+    left: 550px;
+    width: 150px;
+    height: 120px;
+}
+
+#Board3 {
+    position: absolute;
+    bottom: 200px;
+    left: 420px;
+    width: 150px;
+    height: 120px;
+}
+
+#Board4 {
+    position: absolute;
+    bottom: 260px;
+    left: 620px;
+    width: 150px;
+    height: 120px;
+}
+
+#Board5 {
+    position: absolute;
+    bottom: 360px;
+    left: 730px;
+    width: 150px;
+    height: 120px;
+}
+
+#Board6 {
+    position: absolute;
+    bottom: 410px;
+    left: 530px;
+    width: 150px;
+    height: 120px;
+}
+
+#Board7 {
+    position: absolute;
+    bottom: 430px;
+    left: 300px;
+    width: 150px;
+    height: 120px;
+}
+
+#WoodenBoard {
+    position: absolute;
+    left: 230px;
+    width: 150px;
+    height: 200px;
+}
+
+#Leaves {
+    width: 100px;
+    height: 100px;
+
+}
