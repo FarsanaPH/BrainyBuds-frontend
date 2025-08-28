@@ -1,8 +1,13 @@
-import HomePage from "./common/Home";
-import KidsHomePage from "./user/HomePage"
+import GradePage from "./common/GradePage";
+import KidsHomePage from "./user/KidsHomePage"
 
 function App() {
-  return <HomePage/>;
+  return (
+    <>
+      {/* <GradePage />; */}
+      <KidsHomePage />
+    </>
+  )
 }
 
 export default App;

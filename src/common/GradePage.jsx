@@ -1,6 +1,6 @@
 import React from "react";
 
-const HomePage = () => {
+function GradePage() {
   return (
     <div
       className="relative w-full h-screen"
@@ -24,7 +24,7 @@ const HomePage = () => {
                 alt="Board"
                 className="img-fluid"
                 style={{
-                marginTop:"10vw",
+                  marginTop: "10vw",
                   width: "25vw", // default size
                   maxWidth: "120px", // keeps it from being too large
                   objectFit: "contain",
@@ -38,4 +38,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default GradePage;
