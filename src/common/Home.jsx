@@ -1,46 +1,41 @@
 import React from "react";
 
 const HomePage = () => {
-    return (
-        <div
-            className="bg-cover bg-center mt-1"
-            style={{
-                backgroundImage: "url('/assets/Page 1.png')",
-                height: "800px",   // adjust this value
-                backgroundSize: "cover",
-                backgroundPosition: "center"
-            }}
-        >
-            <div className="container text-center">
-
-                <div className="row g-1">
-                    {[...Array(4)].map((_, index) => (
-                        <div className="col-3 d-flex justify-content-center mb-4" key={index}>
-                            <img
-                                src="/assets/class board.png"
-                                alt="Board"
-                                style={{ width: "200px", height: "150px", objectFit: "contain", marginTop: "120px" }}
-                            />
-                        </div>
-                    ))}
-                </div>
-
-
-                <div className="row g-1">
-                    {[...Array(4)].map((_, index) => (
-                        <div className="col-3 d-flex justify-content-center mb-4" key={index}>
-                            <img
-                                src="/assets/class board.png"
-                                alt="Board"
-                                style={{ width: "200px", height: "150px", objectFit: "contain" ,marginTop: "-20px" }}
-                            />
-                        </div>
-                    ))}
-                </div>
-
+  return (
+    <div
+      className="relative w-full h-screen"
+      style={{
+        backgroundImage: "url('/assets/Page 1.png')",
+        backgroundSize: "100% 100%",
+        backgroundPosition: "center",
+        paddingBottom: "22vh",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="container text-center">
+        <div className="row g-1">
+          {[...Array(8)].map((_, index) => (
+            <div
+              key={index}
+              className="col-6 col-md-3 d-flex justify-content-center mb-4"
+            >
+              <img
+                src="/assets/class board.png"
+                alt="Board"
+                className="img-fluid"
+                style={{
+                marginTop:"10vw",
+                  width: "25vw", // default size
+                  maxWidth: "120px", // keeps it from being too large
+                  objectFit: "contain",
+                }}
+              />
             </div>
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default HomePage;

@@ -6,7 +6,7 @@ export default function KidsHomePage() {
     <div
       className="relative w-full h-screen" id="bg"
       style={{
-        backgroundImage: "url('/assets/grade2.png')",
+        // backgroundImage: "url('/assets/grade2.png')",
         backgroundSize: "100% 100%",   // stretches both width + height
         backgroundPosition: "center",
         paddingTop:"20vh",
@@ -52,7 +52,7 @@ export default function KidsHomePage() {
         className="absolute"
         id="WoodenBoard"
       />
-
+      <div className="relative w-full h-screen overflow-hidden">
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-4">
       <img
         src="/assets/day board.png"
@@ -96,6 +96,7 @@ export default function KidsHomePage() {
         className="absolute"
         id="Board7"
       />
+      </div>
       </div>
       {/* Leaves */}
       <img
