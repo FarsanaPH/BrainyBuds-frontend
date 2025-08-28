@@ -4,45 +4,56 @@ import "./animals.css";
 export default function KidsHomePage() {
   return (
     <div
-      className="relative w-full h-screen"
+      className="relative w-full h-screen" id="bg"
       style={{
         backgroundImage: "url('/assets/grade2.png')",
         backgroundSize: "100% 100%",   // stretches both width + height
         backgroundPosition: "center",
-        paddingTop:"120px",
-        paddingBottom:"370px",
+        paddingTop:"20vh",
+        paddingBottom:"65vh",
         backgroundRepeat: "no-repeat",
       }}
     >
 
 
       {/* Animals */}
+      <div className="relative w-full h-screen overflow-hidden">
       <img
         src="/assets/lion.png"
         alt="Lion"
-        className="absolute"
+        className=""
         id="lion"
+      />
+      <img
+        src="/assets/lion2.png"
+        alt="Lion"
+        className=""
+        id="lion2"
       />
       <img
         src="/assets/giraffe.png"
         alt="Giraffe"
-        className="absolute"
+        className=""
         id="Giraffe"
       />
       <img
         src="/assets/elephant.png"
         alt="Elephant"
-        className="absolute"
+        className=""
         id="Elephant"
       />
+      
 
       {/* Wooden Boards */}
+      
       <img
         src="/assets/grade.png"
         alt="Wooden Stick Board"
         className="absolute"
         id="WoodenBoard"
       />
+
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-4">
       <img
         src="/assets/day board.png"
         alt="Board"
@@ -85,6 +96,7 @@ export default function KidsHomePage() {
         className="absolute"
         id="Board7"
       />
+      </div>
       {/* Leaves */}
       <img
         src="/assets/leaves effect.png"
@@ -92,6 +104,7 @@ export default function KidsHomePage() {
         id="Leaves"
         className="absolute"
       />
+    </div>
     </div>
   );
 }
