@@ -2,7 +2,7 @@ import HomePage from "./common/Home";
 import KidsHomePage from "./user/HomePage"
 
 function App() {
-  return <KidsHomePage/>;
+  return <HomePage/>;
 }
 
 export default App;
