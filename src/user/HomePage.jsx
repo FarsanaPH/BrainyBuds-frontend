@@ -55,7 +55,7 @@ export default function KidsHomePage() {
       <div className="relative w-full h-screen overflow-hidden">
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-4">
       <img
-        src="/assets/day board.png"
+        src="/assets/Monday.png"
         alt="Board"
         className="absolute"
         id="Board1"
