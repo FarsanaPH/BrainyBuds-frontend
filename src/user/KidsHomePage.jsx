@@ -61,37 +61,37 @@ export default function KidsHomePage() {
         id="Board1"
       />
       <img
-        src="/assets/day board.png"
+        src="/assets/Tuesday.png"
         alt="Board"
         className="absolute"
         id="Board2"
       />
       <img
-        src="/assets/day board.png"
+        src="/assets/Wednesday.png"
         alt="Board"
         className="absolute"
         id="Board3"
       />
       <img
-        src="/assets/day board.png"
+        src="/assets/Thursday.png"
         alt="Board"
         className="absolute"
         id="Board4"
       />
       <img
-        src="/assets/day board.png"
+        src="/assets/Friday.png"
         alt="Board"
         className="absolute"
         id="Board5"
       />
       <img
-        src="/assets/day board.png"
+        src="/assets/Saturday.png"
         alt="Board"
         className="absolute"
         id="Board6"
       />
       <img
-        src="/assets/day board.png"
+        src="/assets/Sunday.png"
         alt="Board"
         className="absolute"
         id="Board7"
