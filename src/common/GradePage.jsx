@@ -1,8 +1,8 @@
 import React from "react";
+import { motion } from "framer-motion"; 
 import "./GradePage.css";
 
 const GradePage = () => {
-  // Array of 8 different images
   const boards = [
     "/assets/GRADE1.png",
     "/assets/grade2.png",
@@ -22,27 +22,45 @@ const GradePage = () => {
           <div className="row justify-content-center mb-4">
             {boards.slice(0, 3).map((img, index) => (
               <div key={index} className="col-4 d-flex justify-content-center">
-
-                <img src={img} alt={`Board ${index + 1}`} className="img-fluid board" />
-
+                {/* Framer Motion image */}
+                <motion.img
+                  src={img}
+                  alt={`Board ${index + 1}`}
+                  className="img-fluid board"
+                  whileHover={{ scale: 1.1 }} 
+                  whileTap={{ scale: 0.9, rotate: -5 }} 
+                  transition={{ type: "spring", stiffness: 300 }}
+                />
               </div>
             ))}
           </div>
+
           <div className="row justify-content-center mb-4">
             {boards.slice(3, 5).map((img, index) => (
               <div key={index + 3} className="col-4 d-flex justify-content-center">
-
-                <img src={img} alt={`Board ${index + 4}`} className="img-fluid board" />
-
+                <motion.img
+                  src={img}
+                  alt={`Board ${index + 4}`}
+                  className="img-fluid board"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                />
               </div>
             ))}
           </div>
+
           <div className="row justify-content-center">
             {boards.slice(5, 8).map((img, index) => (
               <div key={index + 5} className="col-4 d-flex justify-content-center">
-
-                <img src={img} alt={`Board ${index + 6}`} className="img-fluid board" />
-
+                <motion.img
+                  src={img}
+                  alt={`Board ${index + 6}`}
+                  className="img-fluid board"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9, rotate: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                />
               </div>
             ))}
           </div>
@@ -51,10 +69,18 @@ const GradePage = () => {
         {/* Small & large screens */}
         <div className="row g-1 d-md-none d-lg-flex">
           {boards.map((img, index) => (
-
-            <div key={index} className="col-6 col-md-3 d-flex justify-content-center mb-4">
-              <img src={img} alt={`Board ${index + 1}`} className="img-fluid board" />
-
+            <div
+              key={index}
+              className="col-6 col-md-3 d-flex justify-content-center mb-4"
+            >
+              <motion.img
+                src={img}
+                alt={`Board ${index + 1}`}
+                className="img-fluid board"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9, rotate: index % 2 === 0 ? -5 : 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              />
             </div>
           ))}
         </div>

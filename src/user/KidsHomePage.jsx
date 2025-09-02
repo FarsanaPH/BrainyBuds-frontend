@@ -1,111 +1,123 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./animals.css";
 
 export default function KidsHomePage() {
   return (
     <div
-      className="relative w-full h-screen" id="bg"
+      className="relative w-full h-screen"
+      id="bg"
       style={{
-        // backgroundImage: "url('/assets/grade2.png')",
-        backgroundSize: "100% 100%",   // stretches both width + height
+        backgroundSize: "100% 100%",
         backgroundPosition: "center",
-        paddingTop:"20vh",
-        paddingBottom:"65vh",
+        paddingTop: "20vh",
+        paddingBottom: "65vh",
         backgroundRepeat: "no-repeat",
       }}
     >
-
-
       {/* Animals */}
       <div className="relative w-full h-screen overflow-hidden">
-      <img
-        src="/assets/lion.png"
-        alt="Lion"
-        className=""
-        id="lion"
-      />
-      <img
-        src="/assets/lion2.png"
-        alt="Lion"
-        className=""
-        id="lion2"
-      />
-      <img
-        src="/assets/giraffe.png"
-        alt="Giraffe"
-        className=""
-        id="Giraffe"
-      />
-      <img
-        src="/assets/elephant.png"
-        alt="Elephant"
-        className=""
-        id="Elephant"
-      />
-      
+        <motion.img
+          src="/assets/lion.png"
+          alt="Zebra"
+          id="zebra"
+          animate={{  rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.img
+          src="/assets/lion2.png"
+          alt="Lion"
+          id="lion"
+          animate={{rotate: [0, 5, -4, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.img
+          src="/assets/giraffe.png"
+          alt="Giraffe"
+          id="Giraffe"
+          animate={{ y: [0, -9, 0], rotate: [0, 2, -0.5, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" ,delay:0.5}}
+        />
+        <motion.img
+          src="/assets/elephant.png"
+          alt="Elephant"
+          id="Elephant"
+          animate={{x: [0, -30, 0], rotate: [0, 6, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay:0.5 }}
+        />
 
-      {/* Wooden Boards */}
-      
-      <img
-        src="/assets/grade.png"
-        alt="Wooden Stick Board"
-        className="absolute"
-        id="WoodenBoard"
-      />
-      <div className="relative w-full h-screen overflow-hidden">
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-4">
-      <img
-        src="/assets/Monday.png"
-        alt="Board"
-        className="absolute"
-        id="Board1"
-      />
-      <img
-        src="/assets/Tuesday.png"
-        alt="Board"
-        className="absolute"
-        id="Board2"
-      />
-      <img
-        src="/assets/Wednesday.png"
-        alt="Board"
-        className="absolute"
-        id="Board3"
-      />
-      <img
-        src="/assets/Thursday.png"
-        alt="Board"
-        className="absolute"
-        id="Board4"
-      />
-      <img
-        src="/assets/Friday.png"
-        alt="Board"
-        className="absolute"
-        id="Board5"
-      />
-      <img
-        src="/assets/Saturday.png"
-        alt="Board"
-        className="absolute"
-        id="Board6"
-      />
-      <img
-        src="/assets/Sunday.png"
-        alt="Board"
-        className="absolute"
-        id="Board7"
-      />
+        {/* Wooden Main Board */}
+        <motion.img
+          src="/assets/grade.png"
+          alt="Wooden Stick Board"
+          className="absolute"
+          id="WoodenBoard"
+          initial={{ scale: 0, rotate: -20 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: "spring", stiffness: 100, damping: 10 }}
+          whileTap={{ scale: 0.91, rotate: -1, transition: { duration: 0.15, ease: "easeInOut" }, }}
+        />
+
+        {/* Day Boards */}
+        <div className="relative w-full h-screen overflow-hidden">
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-4">
+            {[
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ].map((day, i) => (
+              <motion.img
+                key={i}
+                src={`/assets/${day}.png`}
+                alt={day}
+                className="absolute"
+                id={`Board${i + 1}`}
+                initial={{ y: 100, opacity: 0, scale: 0.8 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                transition={{
+                  delay: i * 0.2,
+                  type: "spring",
+                  stiffness: 120,
+                  damping: 12,
+                }}
+                whileHover={{ scale: 1.065, transition: { duration: 0.15, ease: "easeOut" }, }}
+                whileTap={{ scale: 0.9, rotate: i % 2 === 0 ? 5 : -5, transition: { duration: 0.15, ease: "easeInOut" }, }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Single Falling Leaf */}
+        <motion.img
+          src="/assets/leaves effect.png"
+          alt="Leaf"
+          id="Leaf"
+          className="pointer-events-none"
+          style={{
+            position: "fixed",
+            // top: 0,
+            left: "5%",
+            transform: "translateX(-50%)",
+            width: "120px",
+            zIndex: 10
+          }}
+          initial={{ y: "5vh", rotate: 0 }}
+          animate={{
+            y: "120vh",          // falls down
+            x: [0, -30, 30, -20, 20, 0],  // left-right sway
+            rotate: [0, 15, -15, 10, -10, 0], // tilt while falling
+          }}
+          transition={{
+            duration: 8,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+        />
       </div>
-      </div>
-      {/* Leaves */}
-      <img
-        src="/assets/leaves effect.png"
-        alt="Leaves"
-        id="Leaves"
-        className="absolute"
-      />
-    </div>
     </div>
   );
 }
