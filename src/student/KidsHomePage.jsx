@@ -2,10 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./animals.css";
 
-export default function KidsHomePage() {
+function KidsHomePage() {
   return (
     <div
-      className="relative w-full h-screen"
       id="bg"
       style={{
         backgroundSize: "100% 100%",
@@ -16,7 +15,7 @@ export default function KidsHomePage() {
       }}
     >
       {/* Animals */}
-      <div className="relative w-full h-screen overflow-hidden">
+      <div>
         <motion.img
           src="/assets/lion.png"
           alt="Zebra"
@@ -59,8 +58,8 @@ export default function KidsHomePage() {
         />
 
         {/* Day Boards */}
-        <div className="relative w-full h-screen overflow-hidden">
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-4">
+        <div>
+          <div >
             {[
               "Monday",
               "Tuesday",
@@ -121,3 +120,5 @@ export default function KidsHomePage() {
     </div>
   );
 }
+
+export default KidsHomePage

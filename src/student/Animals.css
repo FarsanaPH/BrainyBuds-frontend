@@ -9,7 +9,7 @@
 #lion {
 
     position: absolute;
-    top: 78.7%;
+    top: 77%;
     left: 20%;
     width: 11%;
 }
@@ -95,7 +95,7 @@
 
 #bg {
     min-height: 100vh;
-    background-image: url('/assets/page 2.png');
+    background-image: url('/assets/page2.png');
 }
 
 /* .animal-container {

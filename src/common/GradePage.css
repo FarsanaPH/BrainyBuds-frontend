@@ -1,21 +1,21 @@
 .homepage {
   height: 101vh;
   width: 100%;
-  background-image: url("/assets/Page 1.png");
+  background-image: url("/assets/page1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .board {
-  margin-top: 7.7vw;
+  margin-top: 4.25vw;
   width: 14vw;
   max-width: 15vw;
   object-fit: contain;
 }
 @media (max-width: 1068px) {
   .homepage {
-    background-image: url("/assets/MobilePage.png");
+    background-image: url("/assets/MobilePage1.png");
   }
 
   .board {
@@ -27,7 +27,7 @@
 
 @media (max-width: 768px) {
   .homepage {
-    background-image: url("/assets/MobilePage.png");
+    background-image: url("/assets/MobilePage1.png");
   }
 
   .board {
