@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 function AuthPage() {
   const [role, setRole] = useState("");
   const [isRegister, setIsRegister] = useState(true);
-  const [studentData, setStudentData] = useState({ name: "", studentID: "", password: "",  });
+  const [studentData, setStudentData] = useState({ name: "", studentID: "", password: "", });
   const [teacherData, setTeacherData] = useState({ name: "", teacherID: "", subject: "", password: "" });
   const handleStudentChange = (e) => setStudentData({ ...studentData, [e.target.name]: e.target.value });
   const handleTeacherChange = (e) => setTeacherData({ ...teacherData, [e.target.name]: e.target.value });
@@ -94,7 +94,15 @@ function AuthPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-[url('/assets/jungle.jpg')] bg-cover flex pt-20 justify-center">
+      <div
+        className={`h-screen bg-cover flex justify-center items-center`}
+        style={{
+          backgroundImage: !role
+            ? "url('/assets/jungle2.jpg')"  // Jungle for role selection
+            : "url('/assets/authpage.png')"   // New background when role selected
+        }}
+      >
+
         <div className="flex w-[710px] h-130 shadow-lg md:mx-0 mx-4 ">
 
           {/* STEP 1: Role Selection */}
@@ -118,13 +126,14 @@ function AuthPage() {
             </div>
           ) : (
             /* STEP 2: Auth Form */
-            <div className="w-full bg-[url('/assets/woodenboard.png')] bg-cover text-white p-8 flex flex-col justify-center rounded-2xl">
-              <div className="flex justify-center text-7xl text-yellow-300 mb-4">
+            <div className="w-[500px] bg-transparent shadow-lg rounded-2xl p-8 mx-auto">
+              <div className="flex justify-center text-7xl text-yellow-500 mb-4">
                 <IoPersonCircle />
               </div>
-              <h2 className="text-xl font-bold mb-4">
-                {isRegister ? `${role.toUpperCase()} REGISTRATION ` : ` ${role.toUpperCase()} LOGIN`}
+              <h2 className="text-xl font-bold text-center text-gray-800 mb-6">
+                {isRegister ? `${role.toUpperCase()} REGISTRATION` : `${role.toUpperCase()} LOGIN`}
               </h2>
+
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {isRegister && (

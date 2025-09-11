@@ -1,0 +1,30 @@
+.background-section {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.second-section {
+  background-image: url('/assets/landing2.png'); 
+  height: 100vh;
+  text-align: center;
+  color: white;
+  
+}
+
+@media (max-width: 768px) {
+  .second-section {
+    background-image: url('/assets/landingTablet2.png');
+  }
+}
+
+/* Styles for phones (e.g., max-width 480px) */
+@media (max-width: 480px) {
+  .second-section {
+    background-image: url('/assets/landingMobile2.png');
+  }
+}
