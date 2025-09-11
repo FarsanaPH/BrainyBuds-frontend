@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { PiEyesFill } from "react-icons/pi";
-import { MdManageSearch, MdOutlineDashboardCustomize } from "react-icons/md";
+import { MdManageSearch, MdOutlineDashboardCustomize, MdGroups } from "react-icons/md";
 import { HiCreditCard } from "react-icons/hi";
 import { logoutStudent } from "../redux/slices/studentSlice";
 import { logoutTeacher } from "../redux/slices/teacherSlice";
+import { BiSolidLayer } from "react-icons/bi";
 
 function SidebarLayout() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,9 +30,10 @@ function SidebarLayout() {
     ];
 
     const teacherMenu = [
-        { to: "/teachers-homepage", label: "Manage Students", icon: MdOutlineDashboardCustomize },
-        { to: "/create-quiz", label: "Create Quiz", icon: MdManageSearch  },
-         { to: "/manage-quiz", label: "Manage Quiz", icon: HiCreditCard },
+        // { to: "/teachers-homepage", label: "Manage Students", icon: MdOutlineDashboardCustomize },
+        { to: "/for-parents", label: "For Parents", icon: MdGroups },
+        { to: "/manage-quiz", label: "Manage Quiz", icon: BiSolidLayer },
+        { to: "/create-quiz", label: "Create Quiz", icon: MdManageSearch },
     ];
 
     const menu = role === "Student" ? studentMenu : role === "Teacher" ? teacherMenu : [];
@@ -67,7 +68,7 @@ function SidebarLayout() {
                             }
                             onClick={() => setIsSidebarOpen(false)}
                         >
-                            <item.icon className="mr-2 text-2xl" />
+                            <item.icon className="mr-2 text-3xl" />
                             {item.label}
                         </NavLink>
                     ))}
@@ -97,7 +98,7 @@ function SidebarLayout() {
                     className="absolute top-4  left-4 text-yellow-900 md:hidden"
                     onClick={() => setIsSidebarOpen(true)}
                 >
-                    <GiHamburgerMenu size={24}/>
+                    <GiHamburgerMenu size={24} />
                 </button>
 
                 {/* Outlet without extra padding */}

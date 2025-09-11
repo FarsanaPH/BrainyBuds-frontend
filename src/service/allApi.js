@@ -85,8 +85,8 @@ export const getQuizzesByDateAndGradeAPI = (dateISO, grade) =>
   commonApi("GET", `${serverURL}/quizzes?scheduledDate=${encodeURIComponent(dateISO)}&grade=${encodeURIComponent(grade)}`);
 
 
-
 // -----------------------------------------submissions
+
 // Save student attempt-
 export const submitAttemptAPI = (reqBody) =>
   commonApi("POST", `${serverURL}/submissions`, reqBody);
@@ -94,3 +94,25 @@ export const submitAttemptAPI = (reqBody) =>
 // Get student attempts-
 export const getAttemptsByStudentAPI = (studentID) =>
   commonApi("GET", `${serverURL}/submissions?studentID=${encodeURIComponent(studentID)}`);
+
+
+// -----------------------------------------Parent Notes
+// Add a new parent note
+export const addParentNoteAPI = async (noteData) => {
+  return await commonApi("POST", `${serverURL}/parentNotes`, noteData);
+};
+
+// Get all parent notes
+export const getParentNotesAPI = async () => {
+  return await commonApi("GET", `${serverURL}/parentNotes`, "");
+};
+
+// Update a parent note
+export const updateParentNoteAPI = async (id, noteData) => {
+  return await commonApi("PUT", `${serverURL}/parentNotes/${id}`, noteData);
+};
+
+// Delete a parent note
+export const deleteParentNoteAPI = async (id) => {
+  return await commonApi("DELETE", `${serverURL}/parentNotes/${id}`, {});
+};

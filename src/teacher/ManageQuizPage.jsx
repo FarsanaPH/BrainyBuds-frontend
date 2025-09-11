@@ -97,7 +97,7 @@ function ManageQuizPage() {
 
     return (
         <div className="p-6 bg-gray-50 min-h-screen">
-            <h2 className="text-2xl font-bold mb-6 text-green-500">Manage Quizzes</h2>
+            <h2 className="text-2xl font-bold mb-6 text-green-500">Manage Quiz</h2>
 
             {/* Filters */}
             <div className="flex flex-wrap gap-4 mb-6">

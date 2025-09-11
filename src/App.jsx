@@ -14,6 +14,8 @@ import QuizAttemptPage from "./student/QuizAttemptPage";
 import QuizReviewPage from "./student/QuizReviewPage";
 import DayWorksPage from "./student/DayWorksPage";
 import EditQuizPage from "./teacher/EditQuizPage";
+import ForParentsPage from "./teacher/ForParentsPage";
+import ParentDashboardPage from "./student/ParentDashboardPage";
 
 
 
@@ -33,16 +35,17 @@ function App() {
                 
                 <Route element={<SidebarLayout />}>
                     {/* Student routes */}
-                    <Route path="/parents-dashboard" element={<div>Parent Dashboard Page</div>} />
+                    <Route path="/parents-dashboard" element={<ParentDashboardPage/>} />
                     <Route path="/kids-homepage" element={<KidsHomePage />} />
                     
                      
 
                     {/* Teacher routes */}
                     <Route path="/teachers-homepage" element={<TeachersHomePage />} />
-                    <Route path="/create-quiz" element={<CreateQuizPage />} />
-                    <Route path="/edit-quiz/:quizId" element={<EditQuizPage />} />
+                    <Route path="/for-parents" element={<ForParentsPage/>} />
                     <Route path="/manage-quiz" element={<ManageQuizPage/>} />
+                    <Route path="/create-quiz" element={<CreateQuizPage />} />
+                    <Route path="/edit-quiz/:quizId" element={<EditQuizPage />} />                   
                 </Route>
 
                 <Route path="/*" element={<PageNotFound />} />
