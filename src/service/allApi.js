@@ -5,8 +5,7 @@ import { serverURL } from "./serverURL";
 
 // Check if student ID already exists 
 export const findStudentByIDAPI = (studentID) => {
-  const url = `${serverURL}/students?studentID=${encodeURIComponent(studentID)}`;
-  return commonApi("GET", url);
+  return commonApi("GET", `${serverURL}/students?studentID=${encodeURIComponent(studentID)}`);
 };
 
 // Sign Up 
@@ -16,16 +15,14 @@ export const registerStudentAPI = (reqBody) => {
 
 // Sign In 
 export const loginStudentAPI = ({ studentID, password }) => {
-  const url = `${serverURL}/students?studentID=${encodeURIComponent(studentID)}&password=${encodeURIComponent(password)}`;
-  return commonApi("GET", url);
+  return commonApi("GET",`${serverURL}/students?studentID=${encodeURIComponent(studentID)}&password=${encodeURIComponent(password)}`);
 };
 
 // -------------------For Teachers
 
 // Check if student ID already exists 
 export const findTeacherByIDAPI = (teacherID) => {
-  const url = `${serverURL}/teachers?teacherID=${encodeURIComponent(teacherID)}`;
-  return commonApi("GET", url);
+  return commonApi("GET", `${serverURL}/teachers?teacherID=${encodeURIComponent(teacherID)}`);
 };
 
 // Sign Up 
@@ -35,9 +32,65 @@ export const registerTeacherAPI = (reqBody) => {
 
 // Sign In 
 export const loginTeacherAPI = ({ teacherID, password }) => {
-  const url = `${serverURL}/teachers?teacherID=${encodeURIComponent(teacherID)}&password=${encodeURIComponent(password)}`;
-  return commonApi("GET", url);
+  return commonApi("GET", `${serverURL}/teachers?teacherID=${encodeURIComponent(teacherID)}&password=${encodeURIComponent(password)}`);
 };
 
+//----------------------------Quizzes
+
+// export const createQuizAPI = (reqBody) => commonApi("POST", `${serverURL}/quizzes`, reqBody);
+// export const updateQuizAPI = (id, reqBody) => commonApi("PUT", `${serverURL}/quizzes/${id}`, reqBody);
+// export const getQuizzesByGradeAPI = (grade) => commonApi("GET", `${serverURL}/quizzes?grade=${encodeURIComponent(grade)}`);
+// export const getQuizzesByDateAndGradeAPI = (dateISO, grade) => commonApi("GET", `${serverURL}/quizzes?scheduledDate=${encodeURIComponent(dateISO)}&grade=${encodeURIComponent(grade)}`);
+// export const getQuizByIdAPI = (id) => commonApi("GET", `${serverURL}/quizzes/${id}`);
+
+//---------------------------Submissions
+
+// export const submitQuizAPI = (reqBody) => commonApi("POST", `${serverURL}/submissions`, reqBody);
+// export const getStudentSubmissionsAPI = (studentID) => commonApi("GET", `${serverURL}/submissions?studentID=${encodeURIComponent(studentID)}`);
+// export const getSubmissionsByQuizAPI = (quizId) => commonApi("GET", `${serverURL}/submissions?quizId=${encodeURIComponent(quizId)}`);
+
+// --------------------------Quizzes
+// Add new quiz-
+export const addQuizAPI = (reqBody) => 
+  commonApi("POST", `${serverURL}/quizzes`, reqBody);
+
+// Update quiz
+export const updateQuizAPI = (id, reqBody) =>
+  commonApi("PUT", `${serverURL}/quizzes/${id}`, reqBody);
+
+// Delete quiz-
+export const deleteQuizAPI = (id) =>
+  commonApi("DELETE", `${serverURL}/quizzes/${id}`);
 
 
+// Get quiz by id-
+export const getQuizByIdAPI = (id) =>
+  commonApi("GET", `${serverURL}/quizzes/${id}`);
+
+// Get all quizzes-
+export const getAllQuizzesAPI = () => 
+  commonApi("GET", `${serverURL}/quizzes`);
+
+// Get quizzes by teacherid
+export const getAllQuizzesByTeacherAPI = (teacherID) =>
+  commonApi("GET", `${serverURL}/quizzes?teacherID=${encodeURIComponent(teacherID)}`);
+
+
+// Get quizzes by grade
+export const getQuizzesByGradeAPI = (grade) => 
+  commonApi("GET", `${serverURL}/quizzes?grade=${encodeURIComponent(grade)}`);
+
+// Get quizzes by date + grade
+export const getQuizzesByDateAndGradeAPI = (dateISO, grade) =>
+  commonApi("GET", `${serverURL}/quizzes?scheduledDate=${encodeURIComponent(dateISO)}&grade=${encodeURIComponent(grade)}`);
+
+
+
+// -----------------------------------------submissions
+// Save student attempt-
+export const submitAttemptAPI = (reqBody) =>
+  commonApi("POST", `${serverURL}/submissions`, reqBody);
+
+// Get student attempts-
+export const getAttemptsByStudentAPI = (studentID) =>
+  commonApi("GET", `${serverURL}/submissions?studentID=${encodeURIComponent(studentID)}`);

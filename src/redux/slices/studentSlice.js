@@ -5,7 +5,7 @@ const studentSlice = createSlice({
   initialState: { currentStudent: null },
   reducers: {
     setStudent: (state, action) => {
-      state.currentStudent = action.payload;
+      state.currentStudent = { ...action.payload };
     },
     logoutStudent: (state) => {
       state.currentStudent = null;
