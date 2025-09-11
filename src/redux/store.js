@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import studentReducer from "./slices/studentSlice";
 import teacherReducer from "./slices/teacherSlice"
-
+import quizReducer from "./slices/quizSlice"
 // Load state from localStorage
 const loadState = () => {
     try {
@@ -28,6 +28,7 @@ const store = configureStore({
     reducer: {
         student: studentReducer,
         teacher: teacherReducer,
+        quiz: quizReducer,
     },
     preloadedState: loadState()
 })
@@ -37,6 +38,7 @@ store.subscribe(() => {
     saveState({
         student: store.getState().student,
         teacher: store.getState().teacher,
+        quiz: store.getState().quiz,
     });
 });
 export default store

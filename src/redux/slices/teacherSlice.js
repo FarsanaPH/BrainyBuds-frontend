@@ -5,7 +5,7 @@ const teacherSlice = createSlice({
   initialState: { currentTeacher: null },
   reducers: {
     setTeacher: (state, action) => {
-      state.currentTeacher = action.payload;
+      state.currentTeacher = { ...action.payload };
     },
     logoutTeacher: (state) => {
       state.currentTeacher = null;

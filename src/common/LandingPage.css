@@ -1,0 +1,46 @@
+/* Base styles for all screen sizes (default to desktop image) */
+.background-section {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.first-section {
+  background-image: url('/assets/landing1.png');
+  padding-bottom: 60vh;
+}
+
+.second-section {
+  background-image: url('/assets/landing2.png'); 
+  height: 100vh;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .first-section {
+    background-image: url('/assets/landingTablet1.png');
+    padding-bottom: 100px;
+  }
+
+  .second-section {
+    background-image: url('/assets/landingTablet2.png');
+  }
+}
+
+/* Styles for phones (e.g., max-width 480px) */
+@media (max-width: 480px) {
+  .first-section {
+    background-image: url('/assets/landingMobile1.png');
+  }
+
+  .second-section {
+    background-image: url('/assets/landingMobile2.png');
+  }
+}
