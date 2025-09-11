@@ -3,11 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
+<<<<<<< HEAD
 import { MdManageSearch, MdOutlineDashboardCustomize, MdGroups } from "react-icons/md";
 import { HiCreditCard } from "react-icons/hi";
 import { logoutStudent } from "../redux/slices/studentSlice";
 import { logoutTeacher } from "../redux/slices/teacherSlice";
 import { BiSolidLayer } from "react-icons/bi";
+=======
+import { PiEyesFill } from "react-icons/pi";
+import { MdManageSearch, MdOutlineDashboardCustomize } from "react-icons/md";
+import { HiCreditCard } from "react-icons/hi";
+import { logoutStudent } from "../redux/slices/studentSlice";
+import { logoutTeacher } from "../redux/slices/teacherSlice";
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
 
 function SidebarLayout() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,10 +38,16 @@ function SidebarLayout() {
     ];
 
     const teacherMenu = [
+<<<<<<< HEAD
         // { to: "/teachers-homepage", label: "Manage Students", icon: MdOutlineDashboardCustomize },
         { to: "/for-parents", label: "For Parents", icon: MdGroups },
         { to: "/manage-quiz", label: "Manage Quiz", icon: BiSolidLayer },
         { to: "/create-quiz", label: "Create Quiz", icon: MdManageSearch },
+=======
+        { to: "/teachers-homepage", label: "Manage Students", icon: MdOutlineDashboardCustomize },
+        { to: "/create-quiz", label: "Create Quiz", icon: MdManageSearch  },
+         { to: "/manage-quiz", label: "Manage Quiz", icon: HiCreditCard },
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
     ];
 
     const menu = role === "Student" ? studentMenu : role === "Teacher" ? teacherMenu : [];
@@ -68,7 +82,11 @@ function SidebarLayout() {
                             }
                             onClick={() => setIsSidebarOpen(false)}
                         >
+<<<<<<< HEAD
                             <item.icon className="mr-2 text-3xl" />
+=======
+                            <item.icon className="mr-2 text-2xl" />
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
                             {item.label}
                         </NavLink>
                     ))}
@@ -98,7 +116,11 @@ function SidebarLayout() {
                     className="absolute top-4  left-4 text-yellow-900 md:hidden"
                     onClick={() => setIsSidebarOpen(true)}
                 >
+<<<<<<< HEAD
                     <GiHamburgerMenu size={24} />
+=======
+                    <GiHamburgerMenu size={24}/>
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
                 </button>
 
                 {/* Outlet without extra padding */}

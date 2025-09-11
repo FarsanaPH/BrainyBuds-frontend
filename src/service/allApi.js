@@ -85,8 +85,13 @@ export const getQuizzesByDateAndGradeAPI = (dateISO, grade) =>
   commonApi("GET", `${serverURL}/quizzes?scheduledDate=${encodeURIComponent(dateISO)}&grade=${encodeURIComponent(grade)}`);
 
 
+<<<<<<< HEAD
 // -----------------------------------------submissions
 
+=======
+
+// -----------------------------------------submissions
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
 // Save student attempt-
 export const submitAttemptAPI = (reqBody) =>
   commonApi("POST", `${serverURL}/submissions`, reqBody);
@@ -94,6 +99,7 @@ export const submitAttemptAPI = (reqBody) =>
 // Get student attempts-
 export const getAttemptsByStudentAPI = (studentID) =>
   commonApi("GET", `${serverURL}/submissions?studentID=${encodeURIComponent(studentID)}`);
+<<<<<<< HEAD
 
 
 // -----------------------------------------Parent Notes
@@ -116,3 +122,5 @@ export const updateParentNoteAPI = async (id, noteData) => {
 export const deleteParentNoteAPI = async (id) => {
   return await commonApi("DELETE", `${serverURL}/parentNotes/${id}`, {});
 };
+=======
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc

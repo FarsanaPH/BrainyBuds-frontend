@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+<<<<<<< HEAD
 import PageNotFound from "./common/PageNotFound";
 import LandingPage from "./common/LandingPage";
 import AuthPage from "./common/AuthPage";
@@ -17,12 +18,17 @@ import EditQuizPage from "./teacher/EditQuizPage";
 import ForParentsPage from "./teacher/ForParentsPage";
 import ParentDashboardPage from "./student/ParentDashboardPage";
 
+=======
+import LandingPage from "./common/LandingPage";
+import Profile from "./student/Profile";
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
 
 
 function App() {
     return (
         <>
             <Routes>
+<<<<<<< HEAD
                 {/* common routes */}
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/authpage" element={<AuthPage />} />
@@ -49,6 +55,14 @@ function App() {
                 </Route>
 
                 <Route path="/*" element={<PageNotFound />} />
+=======
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/kids-homepage" element={<KidsHomePage />} />
+                <Route path="/gradepage" element={<GradePage />} />
+                <Route path="/authpage" element={<AuthPage />} />
+                <Route path="/teachers-homepage" element={<TeachersHomePage />} />
+                <Route path="/profile" element={<Profile />} />
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
             </Routes>
 
             <ToastContainer position="bottom-right" autoClose={3000} />

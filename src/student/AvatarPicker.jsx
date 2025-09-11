@@ -18,4 +18,8 @@ function AvatarPicker({ gender, onSelect }) {
   );
 }
 
+<<<<<<< HEAD
 export default AvatarPicker;
+=======
+export default AvatarPicker;
+>>>>>>> 0d6207c808ec459c314fc7f4fb36555fa4153cfc
