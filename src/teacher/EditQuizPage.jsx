@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { getQuizByIdAPI, updateQuizAPI } from "../service/allApi";
 import { toast } from "react-toastify";
 import { TiDelete } from "react-icons/ti";
+import { IoChevronBack } from "react-icons/io5";
 
 function EditQuizPage() {
   const { quizId } = useParams();
@@ -97,7 +98,16 @@ function EditQuizPage() {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl mb-4 font-bold text-green-500">Edit Quiz</h2>
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold text-green-600">Edit Quiz</h2>
+        <button
+          onClick={() => navigate("/manage-quiz")}
+          className="flex items-center text-lg gap-1 text-black"
+        >
+          <IoChevronBack size={22} /> Back
+        </button>
+      </div>
       <div className="space-y-3">
         <input
           className="p-2 w-full rounded shadow bg-white text-gray-500"

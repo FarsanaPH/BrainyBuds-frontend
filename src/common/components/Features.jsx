@@ -1,7 +1,11 @@
 import React from 'react';
 import './Features.css'
+import { useNavigate } from 'react-router-dom';
 
 const Features = () => {
+
+  const navigate = useNavigate();
+
   const Features = [
     {
       title: "Daily Quizzes",
@@ -37,14 +41,14 @@ const Features = () => {
           </div>
 
           <p className="text-xl text-gray-700 font-bold leading-relaxed">
-           "Where every child learns, plays, and grows with joy."
-          </p><br/>
+            "Where every child learns, plays, and grows with joy."
+          </p><br />
           <p className=" text-base text-gray-700 font-semibold leading-relaxed">Brainy Buds makes learning fun and interactive with daily quizzes, creative coloring activities, and progress tracking for parents — helping kids learn, play, and grow every day.</p>
 
-          <button
+          <button onClick={() => navigate("/about")}
             className="bg-gradient-to-r from-pink-300 to-purple-400 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 mt-6"
           >
-            Get Started
+            Know About Us
           </button>
         </div>
 
@@ -62,7 +66,7 @@ const Features = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-green-500">
           Discover the Brainy Buds Experience
         </h2>
-        
+
         {Features.map((item, index) => (
           <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center mb-18`}>
             {/* Text Content */}
@@ -74,28 +78,28 @@ const Features = () => {
                 {item.description}
               </p>
             </div>
-            
             {/* Image */}
             <div className="md:w-1/2 p-6 flex justify-center">
               <div className="relative">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="rounded-lg shadow-lg w-full max-w-md"
                 />
               </div>
             </div>
+            
           </div>
         ))}
       </div>
       <div className="landing-page-container">
         {/* Second Background Section - WELCOME */}
-      <div className="background-section second-section">
-        {/* Your content for the second section */}
+        <div className="background-section second-section">
+          {/* Your content for the second section */}
+        </div>
       </div>
-    </div>
     </section>
-    
+
   );
 };
 

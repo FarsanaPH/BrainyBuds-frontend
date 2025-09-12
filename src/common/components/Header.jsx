@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserFriends, FaGraduationCap, FaBookOpen, FaDirections } from 'react-icons/fa';
+import { FaUserFriends, FaGraduationCap, FaDirections } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +16,6 @@ const Header = () => {
 
   const navItems = [
     { icon: <FaUserFriends />, text: "About Us", path: "/about" },
-    { icon: <FaBookOpen />, text: "Resources", path: "/resources" },
     { icon: <FaGraduationCap />, text: "Reach Us", path: "/contact" },
     { icon: <FaDirections />, text: "Login", path: "/authpage" },
   ];
@@ -30,7 +29,7 @@ const Header = () => {
           <img 
             src="/assets/Logo.png" 
             alt="ABC" 
-            className={`transition-all duration-300 ${isScrolled ? 'h-12 w-12' : 'h-20 w-20'}`}
+            className={`transition-all duration-300 ${isScrolled ? 'h-12 w-12' : 'h-15 w-20'}`}
           />
           <img 
             src="/assets/name.png" 
@@ -45,7 +44,7 @@ const Header = () => {
             <Link
               key={index}
               to={item.path}
-              className={`flex items-center gap-2 transition-all duration-300 ${isScrolled ? 'text-sm' : 'text-base'} text-green-700 hover:text-green-400 font-medium`}
+              className={`flex items-center  gap-2 transition-all duration-300 ${isScrolled ? 'text-base text-green-700 hover:text-green-400 font-medium' : 'text-lg font-semibold text-yellow-200 hover:text-yellow-300'}`}
             >
               {item.icon} {item.text}
             </Link>

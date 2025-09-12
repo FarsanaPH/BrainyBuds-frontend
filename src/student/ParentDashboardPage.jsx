@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getParentNotesAPI } from "../service/allApi";
 import { useSelector } from "react-redux";
+import { div } from "framer-motion/client";
 
 function ParentDashboardPage() {
   const student = useSelector((s) => s.student.currentStudent);
@@ -38,25 +39,26 @@ function ParentDashboardPage() {
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-xl font-bold text-green-600 mb-4">News & Updates</h2>
+    <div className="bg-yellow-50 min-h-screen">
+      <div className="p-6">
+      <h2 className="text-xl font-bold text-green-600 mb-4">Get Daily Updates</h2>
       {notes.length === 0 ? (
         <p className="text-gray-500">No updates yet.</p>
       ) : (
         <ul className="space-y-3">
           {notes.map((n, i) => (
             <li key={i} className="bg-white shadow p-3 rounded">
-              <p className="text-sm text-gray-500 flex justify-between">
-                Date:{formatDate(n.date)}
-                <span className="text-black font-semibold">
-                  ~ By {n.teacherName}
-                </span>
+              <p className="text-sm text-gray-500">
+                Date: {formatDate(n.date)}
+                <br />
+                  From: {n.teacherName}
               </p>
               <p className="font-semibold text-gray-700 mt-2">{n.note}</p>
             </li>
           ))}
         </ul>
       )}
+    </div>
     </div>
   );
 }

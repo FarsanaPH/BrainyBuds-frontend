@@ -272,17 +272,24 @@ function KidsHomePage() {
             }}
             onClick={async () => {
               try {
-                const quizRes =
-                  await getQuizzesByDateAndGradeAPI(
-                    day.dateISO,
-                    student.grade.toString()
-                  );
-                if (
-                  quizRes?.status === 200 &&
-                  quizRes.data.length > 0
-                ) {
+                const quizRes = await getQuizzesByDateAndGradeAPI(
+                  day.dateISO,
+                  student.grade.toString()
+                );
+
+                const isSunday = new Date(day.dateISO).getDay() === 0; // Sunday = 0
+                const hasHomework = quizRes?.status === 200 && quizRes.data.length > 0;
+
+                if (!hasHomework && isSunday) {
+                  // Navigate to coloring gallery for Sunday with no homework
+                  navigate("/coloring-page");
+                  // Set floating panel message if needed (optional, only used if you show a panel inside coloring page)
+                  setPanelMessage("No homework Today. Enjoy coloring!");
+                } else if (hasHomework) {
+                  // Navigate to regular day-work page if homework exists
                   navigate(`/day-work/${day.dateISO}`);
                 } else {
+                  // Weekdays with no homework, show normal panel
                   setActiveDate(day.dateISO);
                   setPanelMessage("No homework for this day.");
                   setPanelQuizzes([]);
@@ -294,6 +301,7 @@ function KidsHomePage() {
                 setPanelQuizzes([]);
               }
             }}
+
           />
         ))}
       </div>
@@ -327,7 +335,7 @@ function KidsHomePage() {
               <p >{panelMessage}</p>
             ) : (
               <>
-                <p className="mb-2">{panelMessage}</p>               
+                <p className="mb-2">{panelMessage}</p>
                 {panelQuizzes.map((q) => (
                   <div
                     key={q.id}
@@ -347,12 +355,12 @@ function KidsHomePage() {
                   </div>
                 ))}
                 <p className="mt-1 text-sm font-medium">
-                    {panelQuizzes.every(q => q.attempted)
-                      ? <span className="text-green-700 flex"><GoDotFill className="mt-1" />Completed – Well Done!</span>
-                      : panelQuizzes.some(q => !q.attempted)
-                        ? <span className="text-red-700 flex "><GoDotFill className="mt-1" />Pending</span>
-                        : null}
-                  </p>
+                  {panelQuizzes.every(q => q.attempted)
+                    ? <span className="text-green-700 flex"><GoDotFill className="mt-1" />Completed – Well Done!</span>
+                    : panelQuizzes.some(q => !q.attempted)
+                      ? <span className="text-red-700 flex "><GoDotFill className="mt-1" />Pending</span>
+                      : null}
+                </p>
               </>
             )}
           </div>
