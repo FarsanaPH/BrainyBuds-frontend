@@ -36,9 +36,7 @@ function App() {
                 <Route element={<SidebarLayout />}>
                     {/* Student routes */}
                     <Route path="/parents-dashboard" element={<ParentDashboardPage/>} />
-                    <Route path="/kids-homepage" element={<KidsHomePage />} />
-                    
-                     
+                    <Route path="/kids-homepage" element={<KidsHomePage />} />                     
 
                     {/* Teacher routes */}
                     <Route path="/teachers-homepage" element={<TeachersHomePage />} />
