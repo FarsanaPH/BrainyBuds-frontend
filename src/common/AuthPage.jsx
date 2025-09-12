@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IoArrowBackCircleSharp, IoChevronBackCircle, IoPersonCircle } from "react-icons/io5";
+import { IoChevronBackCircle, IoPersonCircle } from "react-icons/io5";
 import { findStudentByIDAPI, findTeacherByIDAPI, loginStudentAPI, loginTeacherAPI, registerStudentAPI, registerTeacherAPI, } from "../service/allApi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -106,8 +106,15 @@ function AuthPage() {
           if (res?.status === 200 && Array.isArray(res.data) && res.data.length > 0) {
             const student = res.data[0];
             dispatch(setStudent(student));
-            toast.success(`Login successful! Welcome ${student.name}.`);
-            navigate("/kids-homepage");
+            
+            // check if profile is incomplete
+            if (!student.role || !student.gender || !student.avatar) {
+              navigate("/student-profile");
+              toast.success(`Please complete your profile. `);
+            } else {
+              navigate("/kids-homepage");
+              toast.success(`Login successful. Welcome ${student.name}!`);
+            }
           } else {
             toast.error("Please login with valid student credentials!");
           }
@@ -135,7 +142,7 @@ function AuthPage() {
             const teacher = res.data[0];
             dispatch(setTeacher(teacher));
             toast.success(`Login successful! Welcome ${teacher.name}.`);
-            navigate("/teachers-homepage");
+            navigate("/create-quiz");
           } else {
             toast.error("Please login with valid teacher credentials!");
           }

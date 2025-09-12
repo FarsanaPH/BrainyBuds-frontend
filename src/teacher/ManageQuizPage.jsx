@@ -1,10 +1,10 @@
 // src/pages/ManageQuizPage.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllQuizzesAPI, deleteQuizAPI } from "../service/allApi";
+import { useSelector } from "react-redux";
+import { deleteQuizAPI, getAllQuizzesByTeacherAPI } from "../service/allApi";
 import { toast } from "react-toastify";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
-import { FaSearch } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
 
 function ManageQuizPage() {
@@ -18,16 +18,19 @@ function ManageQuizPage() {
     const [showModal, setShowModal] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
 
+    const teacher = useSelector((s) => s.teacher.currentTeacher);
     const navigate = useNavigate();
 
     // Fetch all quizzes
     useEffect(() => {
-        fetchQuizzes();
-    }, []);
+        if (teacher && teacher.teacherID) {
+            fetchQuizzes();
+        }
+    }, [teacher]);
 
     const fetchQuizzes = async () => {
         try {
-            const result = await getAllQuizzesAPI();
+            const result = await getAllQuizzesByTeacherAPI(teacher.teacherID);
             if (result.status === 200) {
                 setQuizzes(result.data);
                 setFilteredQuizzes(result.data);
@@ -143,6 +146,7 @@ function ManageQuizPage() {
                             <th className="p-3 border-b">Subject</th>
                             <th className="p-3 border-b">Grade</th>
                             <th className="p-3 border-b">Date</th>
+                            <th className="p-3 border-b text-center">Submissions</th>
                             <th className="p-3 border-b text-center">Actions</th>
                         </tr>
                     </thead>
@@ -159,27 +163,37 @@ function ManageQuizPage() {
                                     <td className="p-3 border-b border-gray-300">Grade {q.grade}</td>
                                     <td className="p-3 border-b border-gray-300">{formatDate(q.scheduledDate)}</td>
                                     <td className="p-3 border-b border-gray-300 text-center">
+                                        <button
+                                            onClick={() => navigate(`/submissions/${q.id}`)}
+                                            className="rounded text-blue-600 hover:underline transition"
+                                        >
+                                            View
+                                        </button>
+                                    </td>
+                                    <td className="p-3 border-b border-gray-300 text-center">
                                         <div className="flex justify-center gap-3">
                                             <button
                                                 onClick={() => navigate(`/edit-quiz/${q.id}`)}
-                                                className="px-3 py-1 flex items-center gap-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                                                className="px-3 py-1 flex items-center gap-1 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
                                             >
                                                 <FiEdit /> Edit
                                             </button>
                                             <button
                                                 onClick={() => confirmDelete(q.id)}
-                                                className="px-3 py-1 flex items-center gap-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                                                className="px-3 py-1 flex items-center gap-1 bg-red-600 text-white rounded hover:bg-red-700 transition"
                                             >
                                                 <FiTrash2 /> Delete
                                             </button>
                                         </div>
                                     </td>
+
+
                                 </tr>
                             ))
                         ) : (
                             <tr>
                                 <td
-                                    colSpan="5"
+                                    colSpan="6"
                                     className="text-center p-6 text-gray-500 italic"
                                 >
                                     No quizzes found
@@ -188,7 +202,7 @@ function ManageQuizPage() {
                         )}
                     </tbody>
                 </table>
-                
+
                 {/* modal */}
                 {showModal && (
                     <div className="fixed top-4 left-160 bg-transparent z-50">

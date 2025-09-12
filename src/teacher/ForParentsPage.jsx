@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addParentNoteAPI } from "../service/allApi";
-import { IoSend } from "react-icons/io5";
 import { IoIosSend } from "react-icons/io";
 
 function ForParentsPage() {
@@ -44,7 +43,7 @@ function ForParentsPage() {
       <h2 className="text-2xl font-bold text-green-600 mb-4">News and Announcements</h2>
 
       <textarea
-        className="w-full p-3 border rounded shadow mb-3"
+        className="w-full p-3 rounded shadow bg-white text-gray-500 mb-3"
         rows={4}
         placeholder="Write your note for parents..."
         value={note}
@@ -54,13 +53,13 @@ function ForParentsPage() {
       <div className="flex gap-3 mb-3">
         <input
           type="date"
-          className="p-2 border rounded shadow"
+          className="p-2 rounded shadow bg-white text-gray-500"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
 
         <select
-          className="p-2 border rounded shadow"
+          className="p-2 rounded shadow bg-white text-gray-500"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
         >

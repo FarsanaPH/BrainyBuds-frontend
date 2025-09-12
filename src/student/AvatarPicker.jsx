@@ -19,3 +19,4 @@ function AvatarPicker({ gender, onSelect }) {
 }
 
 export default AvatarPicker;
+

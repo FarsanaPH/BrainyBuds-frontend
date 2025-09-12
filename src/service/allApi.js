@@ -18,6 +18,12 @@ export const loginStudentAPI = ({ studentID, password }) => {
   return commonApi("GET",`${serverURL}/students?studentID=${encodeURIComponent(studentID)}&password=${encodeURIComponent(password)}`);
 };
 
+// updateprofile
+export const updateStudentProfileAPI = (id, data) => {
+  return commonApi("PUT", `${serverURL}/students/${id}`, data);
+};
+
+
 // -------------------For Teachers
 
 // Check if student ID already exists 
@@ -62,7 +68,6 @@ export const updateQuizAPI = (id, reqBody) =>
 export const deleteQuizAPI = (id) =>
   commonApi("DELETE", `${serverURL}/quizzes/${id}`);
 
-
 // Get quiz by id-
 export const getQuizByIdAPI = (id) =>
   commonApi("GET", `${serverURL}/quizzes/${id}`);
@@ -85,15 +90,23 @@ export const getQuizzesByDateAndGradeAPI = (dateISO, grade) =>
   commonApi("GET", `${serverURL}/quizzes?scheduledDate=${encodeURIComponent(dateISO)}&grade=${encodeURIComponent(grade)}`);
 
 
+
 // -----------------------------------------submissions
 
 // Save student attempt-
 export const submitAttemptAPI = (reqBody) =>
   commonApi("POST", `${serverURL}/submissions`, reqBody);
 
-// Get student attempts-
+// Get a particular students all attempts-
 export const getAttemptsByStudentAPI = (studentID) =>
   commonApi("GET", `${serverURL}/submissions?studentID=${encodeURIComponent(studentID)}`);
+
+// get a particular submission by it's id
+export const getAttemptsByQuizAPI = (quizId) => commonApi("GET", `${serverURL}/submissions?quizId=${encodeURIComponent(quizId)}`);
+
+// get all students by grade
+export const getStudentsByGradeAPI = (grade) =>
+  commonApi("GET", `${serverURL}/students?grade=${encodeURIComponent(grade)}`);
 
 
 // -----------------------------------------Parent Notes

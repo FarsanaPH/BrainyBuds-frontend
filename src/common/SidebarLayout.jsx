@@ -3,11 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { MdManageSearch, MdOutlineDashboardCustomize, MdGroups } from "react-icons/md";
+import { MdManageSearch, MdOutlineDashboardCustomize, MdGroups, MdLeaderboard, MdOutlineStreetview } from "react-icons/md";
 import { HiCreditCard } from "react-icons/hi";
 import { logoutStudent } from "../redux/slices/studentSlice";
 import { logoutTeacher } from "../redux/slices/teacherSlice";
 import { BiSolidLayer } from "react-icons/bi";
+import { FaTrophy } from "react-icons/fa";
+import { IoIosTrophy, IoMdTrophy } from "react-icons/io";
+import { SlBadge } from "react-icons/sl";
+import { PiTrophy } from "react-icons/pi";
+import { TbBrandGravatar } from "react-icons/tb";
+
 
 function SidebarLayout() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,15 +31,20 @@ function SidebarLayout() {
     console.log("teacher:", teacher);
     console.log("role:", role);
     const studentMenu = [
-        { to: "/parents-dashboard", label: "Parent Dashboard", icon: MdOutlineDashboardCustomize },
         { to: "/kids-homepage", label: "Homeworks", icon: HiCreditCard },
+        { to: "/parents-dashboard", label: "Parent Dashboard", icon: MdGroups },
+        { to: "/leader-board", label: "Leader Board", icon: MdLeaderboard},
+        { to: "/student-profile", label: "Profile", icon: TbBrandGravatar},
     ];
 
     const teacherMenu = [
         // { to: "/teachers-homepage", label: "Manage Students", icon: MdOutlineDashboardCustomize },
-        { to: "/for-parents", label: "For Parents", icon: MdGroups },
-        { to: "/manage-quiz", label: "Manage Quiz", icon: BiSolidLayer },
+         { to: "/for-parents", label: "For Parents", icon: MdGroups },
         { to: "/create-quiz", label: "Create Quiz", icon: MdManageSearch },
+         { to: "/manage-quiz", label: "Manage Quiz", icon: BiSolidLayer },
+        
+       
+
     ];
 
     const menu = role === "Student" ? studentMenu : role === "Teacher" ? teacherMenu : [];
@@ -69,6 +80,7 @@ function SidebarLayout() {
                             onClick={() => setIsSidebarOpen(false)}
                         >
                             <item.icon className="mr-2 text-3xl" />
+
                             {item.label}
                         </NavLink>
                     ))}
@@ -99,6 +111,7 @@ function SidebarLayout() {
                     onClick={() => setIsSidebarOpen(true)}
                 >
                     <GiHamburgerMenu size={24} />
+
                 </button>
 
                 {/* Outlet without extra padding */}
