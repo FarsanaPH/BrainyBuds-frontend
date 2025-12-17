@@ -21,7 +21,7 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-2 bg-lime-100 bg-opacity-95 backdrop-blur-md' : 'py-4 bg-transparent'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-0 bg-lime-100 bg-opacity-95 backdrop-blur-md' : 'py-4 bg-transparent'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         
         {/* Logo + Extra Image */}
@@ -55,7 +55,8 @@ const Header = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-gray-700 focus:outline-none"
+            className={`${isScrolled ? "text-yellow-600" : "text-yellow-200"} focus:outline-none`}
+
           >
             {isMenuOpen ? '✕' : '☰'}
           </button>
@@ -64,12 +65,12 @@ const Header = () => {
 
       {/* Mobile Nav */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-white py-4 px-6">
+        <nav className="md:hidden bg-yellow-200 mt-2   py-4 px-6">
           {navItems.map((item, index) => (
             <Link
               key={index}
               to={item.path}
-              className="flex items-center gap-3 py-3 text-gray-700 font-medium border-b border-gray-100"
+              className="flex items-center gap-3 py-3 text-gray-700 font-medium border-b border-yellow-500"
               onClick={() => setIsMenuOpen(false)} // close menu on click
             >
               {item.icon} {item.text}

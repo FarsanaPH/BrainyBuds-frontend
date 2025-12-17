@@ -28,7 +28,7 @@ const Features = () => {
     <section className="py-5 bg-gradient-to-br from-green-200 to-lime-300">
 
       {/* Content Section */}
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-16 py-16">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-16 py-5 md:py-16">
 
         {/* Text Section */}
         <div className="md:w-1/2 mb-10 md:mb-0">
@@ -62,16 +62,16 @@ const Features = () => {
           />
         </div>
       </div>
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-green-500">
+      <div className="container mx-auto px-4 pb-10 md:pb-0">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-5 md:mb-16 text-green-500">
           Discover the Brainy Buds Experience
         </h2>
 
         {Features.map((item, index) => (
-          <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center mb-18`}>
+          <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center mb-5 md:mb-18`}>
             {/* Text Content */}
-            <div className="md:w-1/2 p-6">
-              <h3 className="text-2xl md:text-3xl font-bold text-green-600 italic mb-3">
+            <div className="md:w-1/2 p-6 pb-5 md:pb-0 ">
+              <h3 className="text-2xl md:text-3xl font-bold text-green-600 italic  md:mb-3">
                 {item.title}
               </h3>
               <p className="text-green-800 text-lg">
@@ -79,7 +79,7 @@ const Features = () => {
               </p>
             </div>
             {/* Image */}
-            <div className="md:w-1/2 p-6 flex justify-center">
+            <div className="md:w-1/2 md:p-6 px-6 flex justify-center">
               <div className="relative">
                 <img
                   src={item.image}
@@ -93,9 +93,9 @@ const Features = () => {
         ))}
       </div>
       <div className="landing-page-container">
-        {/* Second Background Section - WELCOME */}
+        {/* Second Background Section */}
         <div className="background-section second-section">
-          {/* Your content for the second section */}
+          {/* img placed in feature.css */}
         </div>
       </div>
     </section>

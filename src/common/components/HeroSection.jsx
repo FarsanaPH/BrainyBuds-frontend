@@ -14,7 +14,7 @@ const HeroSection = () => {
             onClick={() => {
               navigate("/authpage")
             }}
-            className="absolute left-165 top-140 hover:scale-95 p-3 px-6 shadow rounded-full text-xl text-white bg-gradient-to-br from-green-600 to-green-700 cursor-pointer font-bold "
+            className="absolute left-1/2 top-[70%]  md:top-[85%] -translate-x-1/2 -translate-y-1/2  hover:scale-95 p-2 md:p-3  px-5 md:px-6 shadow rounded-full text-lg md:text-xl text-white bg-gradient-to-br from-green-600 to-green-700 cursor-pointer font-bold "
           >
            
             Get Started
