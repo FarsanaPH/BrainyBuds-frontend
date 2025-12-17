@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getQuizzesByDateAndGradeAPI, getAttemptsByStudentAPI, } from "../service/allApi";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
-import "./animals.css";
+import "./Animals.css";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 
