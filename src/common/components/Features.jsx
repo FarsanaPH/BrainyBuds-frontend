@@ -31,8 +31,8 @@ const Features = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-16 py-5 md:py-16">
 
         {/* Text Section */}
-        <div className="md:w-1/2 mb-10 md:mb-0">
-          <div className="mb-2">   {/* reduce mb-8 → mb-4 */}
+        <div className="md:w-1/2 mb-10 md:mb-20">
+          <div className="mb-2"> 
             <img
               src="/assets/name.png"
               alt="landing"
