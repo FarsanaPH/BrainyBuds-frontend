@@ -52,10 +52,11 @@ function SubmissionsPage() {
                     <thead>
                         <tr className="bg-green-600 text-white text-left">
                             <th className="p-3 border-b">Sl. No</th>
+                            <th className="p-3 border-b">Student ID</th>
                             <th className="p-3 border-b">Student Name</th>
                             <th className="p-3 border-b">Score</th>
                             <th className="p-3 border-b">Status</th>
-                            <th className="p-3 border-b">Review</th>
+                            {/* <th className="p-3 border-b">Review</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +66,7 @@ function SubmissionsPage() {
                                 return (
                                     <tr key={stu.studentID} className={` ${idx % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
                                         <td className="p-3 border-b">{idx + 1}</td>
+                                        <td className="p-3 border-b">{stu.studentID}</td>
                                         <td className="p-3 border-b">{stu.name}</td>
                                         <td className="p-3 border-b">
                                             {attempt ? `${attempt.score}/${attempt.total}` : "-"}
@@ -76,7 +78,7 @@ function SubmissionsPage() {
                                                 <span className="text-red-600 font-semibold">Not Submitted</span>
                                             )}
                                         </td>
-                                        <td className="p-3 border-b">
+                                        {/* <td className="p-3 border-b">
                                             {attempt ? (
                                                 <button
                                                     onClick={() => navigate(`/teacher-review/${quizId}?student=${stu.studentID}`)} 
@@ -87,7 +89,7 @@ function SubmissionsPage() {
                                             ) : (
                                                 <span className="text-gray-400 italic">Nil</span>
                                             )}
-                                        </td>
+                                        </td> */}
                                     </tr>
                                 );
                             })

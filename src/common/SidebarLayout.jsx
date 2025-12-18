@@ -33,15 +33,16 @@ function SidebarLayout() {
     const studentMenu = [
         { to: "/kids-homepage", label: "Homeworks", icon: HiCreditCard },
         { to: "/parents-dashboard", label: "Parent Dashboard", icon: MdGroups },
-        { to: "/leader-board", label: "Leader Board", icon: MdLeaderboard},
+        // { to: "/leader-board", label: "Leader Board", icon: MdLeaderboard},
         { to: "/student-profile", label: "Profile", icon: TbBrandGravatar},
     ];
 
     const teacherMenu = [
         // { to: "/teachers-homepage", label: "Manage Students", icon: MdOutlineDashboardCustomize },
-         { to: "/for-parents", label: "For Parents", icon: MdGroups },
+         
         { to: "/create-quiz", label: "Create Quiz", icon: MdManageSearch },
          { to: "/manage-quiz", label: "Manage Quiz", icon: BiSolidLayer },
+         { to: "/for-parents", label: "For Parents", icon: MdGroups },
         
        
 
