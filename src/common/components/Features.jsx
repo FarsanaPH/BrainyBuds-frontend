@@ -28,10 +28,10 @@ const Features = () => {
     <section className="py-5 bg-gradient-to-br from-green-200 to-lime-300">
 
       {/* Content Section */}
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-16 py-5 md:py-16">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-16 py-5 md:py-26">
 
         {/* Text Section */}
-        <div className="md:w-1/2 mb-10 md:mb-20">
+        <div className="md:w-1/2 mb-10 md:mb-0">
           <div className="mb-2"> 
             <img
               src="/assets/name.png"

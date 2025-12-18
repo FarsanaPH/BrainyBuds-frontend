@@ -158,7 +158,7 @@ function KidsHomePage() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute top-4 left-5 text-xl font-bold text-yellow-200 drop-shadow">
+      <div className="absolute top-3 md:top-4 left-12 md:left-5 text-xl font-bold text-yellow-200 drop-shadow">
         {todayFormat}
       </div>
 
