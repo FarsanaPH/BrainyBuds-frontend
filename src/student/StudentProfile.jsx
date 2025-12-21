@@ -133,7 +133,7 @@ function StudentProfile() {
 
   function GenderDropdown({ value, onChange }) {
     const [open, setOpen] = useState(false);
-    const options = ["Boy", "Girl"];
+    const options = ["boy", "girl"];
     // inside function return
     return (
       <div style={{ width: "100%", position: "relative" }}>
