@@ -42,7 +42,7 @@ const GradePage = ({ role, onGradesSelected }) => {
             return (
               <div
                 key={index}
-                className={`w-1/3 lg:w-1/5 flex justify-center items-center mb-7 cursor-pointer ${
+                className={`w-1/3 lg:w-1/5 flex justify-center items-center md:mb-7 cursor-pointer ${
                   isSelected ? "ring-3 ring-yellow-300 rounded-lg" : ""
                 }`}
                 onClick={() => handleClick(gradeNum)}

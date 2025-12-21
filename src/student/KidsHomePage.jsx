@@ -308,15 +308,7 @@ function KidsHomePage() {
 
       {/* Floating panel */}
       {activeDate && (
-        <div
-          style={{
-            position: "fixed",
-            right: 20,
-            top: "40vh",
-            zIndex: 80,
-            width: 284,
-          }}
-        >
+        <div id="floating-panel">
           <div className="bg-white/90 rounded p-4 shadow-lg">
             {/*floating date */}
             <div className="font-bold mb-2 text-green-600">
@@ -340,6 +332,7 @@ function KidsHomePage() {
                   <div
                     key={q.id}
                     className="border p-2 mb-2 rounded "
+                    onClick={() => navigate(`/day-work/${activeDate}`)}
                   >
                     <p className="font-semibold ">
                       {q.title}

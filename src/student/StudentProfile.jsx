@@ -75,6 +75,113 @@ function StudentProfile() {
     return <p className="text-center mt-10">Please login first.</p>;
   }
 
+  function PassionDropdown({ value, onChange }) {
+    const [open, setOpen] = useState(false);
+
+    const options = [
+      "Actor", "CabinCrew", "Astronaut", "Athlete", "Cameraman",
+      "Chef", "Doctor", "Firefighter", "Lawyer", "Musician",
+      "Police", "Scientist", "Streamer", "Teacher"
+    ];
+    // inside function return
+    return (
+      <div style={{ width: "100%", position: "relative" }}>
+        <div
+          onClick={() => setOpen(!open)}
+          className="flex justify-between"
+        >
+          <div>{value || "Select your passion"}</div>
+          <div style={{ fontSize: "12px" }}>▼</div>
+        </div>
+
+
+        {open && (
+          <div
+            style={{
+              position: "absolute",
+              top: "110%",
+              left: 0,
+              right: 0,
+              maxHeight: "180px",
+              overflowY: "auto",
+              background: "#fff",
+              border: "1px solid #ccc",
+              borderRadius: "6px",
+              zIndex: 999,
+            }}
+          >
+            {options.map((opt) => (
+              <div
+                key={opt}
+                onClick={() => {
+                  onChange(opt);
+                  setOpen(false);
+                }}
+                style={{
+                  padding: "10px",
+                  cursor: "pointer",
+                }}
+              >
+                {opt}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  function GenderDropdown({ value, onChange }) {
+    const [open, setOpen] = useState(false);
+    const options = ["Boy", "Girl"];
+    // inside function return
+    return (
+      <div style={{ width: "100%", position: "relative" }}>
+        <div
+          onClick={() => setOpen(!open)}
+          className="flex justify-between"
+        >
+          <span>{value || "Select Gender"}</span>
+          <span style={{ fontSize: "12px" }}>▼</span>
+        </div>
+
+        {open && (
+          <div
+            style={{
+              position: "absolute",
+              top: "110%",
+              left: 0,
+              right: 0,
+              maxHeight: "100px",
+              overflowY: "auto",
+              background: "#fff",
+              border: "1px solid #ccc",
+              borderRadius: "6px",
+              zIndex: 999,
+            }}
+          >
+            {options.map((opt) => (
+              <div
+                key={opt}
+                onClick={() => {
+                  onChange(opt);
+                  setOpen(false);
+                }}
+                style={{
+                  padding: "10px",
+                  cursor: "pointer",
+                }}
+              >
+                {opt}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+
   return (
     <div>
       <div
@@ -96,21 +203,13 @@ function StudentProfile() {
         {!submitted && (
           <form
             onSubmit={handleSubmit}
+            className="w-full max-w-[450px] mx-auto mt-10 md:mt-20 md:bg-green-700/78 p-6 rounded-xl shadow-lg flex flex-col  items-center"
             style={{
               position: "relative",
-              minWidth: "450px",
               minHeight: "400px",
-              margin: "0 auto",
-              marginTop: "80px",
-              background: "rgba(14, 109, 21, 0.85)",
-              padding: "25px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
             }}
           >
+
             <h1
               style={{
                 textAlign: "center",
@@ -136,7 +235,7 @@ function StudentProfile() {
             {/* Grade (readonly) */}
             <input
               type="text"
-              value={student.grade}
+              value={`Grade ${student.grade}`}
               readOnly
               style={{
                 ...selectStyle,
@@ -144,41 +243,20 @@ function StudentProfile() {
               }}
             />
 
-            {/* Gender dropdown */}
-            <select
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-              required
-              style={selectStyle}
-            >
-              <option value="">Select Gender</option>
-              <option value="boy">Boy</option>
-              <option value="girl">Girl</option>
-            </select>
+            <div style={{
+              ...selectStyle,
+              backgroundColor: "#ffffff",
+            }}>
+              <GenderDropdown value={gender} onChange={setGender} />
+            </div>
 
-            {/* Passion dropdown */}
-            <select
-              value={passion}
-              onChange={(e) => setPassion(e.target.value)}
-              required
-              style={selectStyle}
-            >
-              <option value="">Select your passion</option>
-              <option value="Actor">Actor</option>
-              <option value="CabinCrew">Cabin Crew</option>
-              <option value="Astronaut">Astronaut</option>
-              <option value="Athlete">Athlete</option>
-              <option value="Cameraman">Cameraman</option>
-              <option value="Chef">Chef</option>
-              <option value="Doctor">Doctor</option>
-              <option value="Firefighter">Firefighter</option>
-              <option value="Lawyer">Lawyer</option>
-              <option value="Musician">Musician</option>
-              <option value="Police">Police</option>
-              <option value="Scientist">Scientist</option>
-              <option value="Streamer">Streamer</option>
-              <option value="Teacher">Teacher</option>
-            </select>
+            <div style={{
+              ...selectStyle,
+              backgroundColor: "#ffffff",
+            }}>
+              <PassionDropdown value={passion} onChange={setPassion} />
+            </div>
+
 
             {/* Avatar preview */}
             {previewAvatar && (
@@ -209,26 +287,30 @@ function StudentProfile() {
             <button type="submit" style={buttonStyle}>
               Save Profile
             </button>
-            <img
-              src="/assets/bee.png"
-              alt="Bee"
-              style={{
-                position: "absolute",
-                top: "3vh",
-                right: "60vh",
-                width: "80px",
-              }}
-            />
-            <img
-              src="/assets/lion.png"
-              alt="Lion"
-              style={{
-                position: "absolute",
-                bottom: "2vh",
-                right: "1vh",
-                width: "90px",
-              }}
-            />
+            <div className="">
+              <img
+                src="/assets/bee.png"
+                alt="Bee"
+                style={{
+                  position: "absolute",
+                  top: "3vh",
+                  right: "60vh",
+                  width: "80px",
+                }}
+              />
+            </div>
+            <div className="">
+              <img
+                src="/assets/lion.png"
+                alt="Lion"
+                style={{
+                  position: "absolute",
+                  bottom: "2vh",
+                  right: "0.1vh",
+                  width: "90px",
+                }}
+              />
+            </div>
           </form>
         )}
 
@@ -240,20 +322,21 @@ function StudentProfile() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "20px",
+              // gap: "20px",
               maxWidth: "800px",
+              
               background: "#f7d264",
               borderRadius: "12px",
               color: "black",
-              marginRight: "30px",
               padding: "20px",
               flexDirection: "column",
               textAlign: "center",
             }}
+            className="gap-0.1 "
           >
-            <h1 style={{ fontSize: "22px", marginBottom: "10px", paddingTop:"60px" }}>
-              Hi <span style={{ color: "green", fontWeight:"bold" }}>{student.name}</span>, the
-              future <span style={{ color: "white",  fontWeight:"bold" }}>{passion}!</span>
+            <h1 style={{ fontSize: "22px", marginBottom: "10px", paddingTop: "60px" }}>
+              Hi <span style={{ color: "green", fontWeight: "bold" }}>{student.name}</span>, the
+              future <span style={{ color: "white", fontWeight: "bold" }}>{passion}!</span>
             </h1>
             <h2 style={{ fontSize: "18px", lineHeight: "1.6", marginBottom: "20px" }}>
               You're currently in <b>Grade {student.grade}</b>. At{" "}
@@ -271,7 +354,7 @@ function StudentProfile() {
                   height: "300px",
                   borderRadius: "10px",
                   objectFit: "contain",
-                  marginBottom: "20px",
+                  marginBottom: "10px",
                 }}
               />
             )}
@@ -287,6 +370,7 @@ function StudentProfile() {
                 fontWeight: "bold",
                 cursor: "pointer",
               }}
+              // className="hidden md:flex"
             >
               Go Home
             </button>
@@ -297,4 +381,4 @@ function StudentProfile() {
   );
 }
 
-export default StudentProfile;
+export default StudentProfile;  

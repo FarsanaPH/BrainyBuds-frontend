@@ -161,9 +161,9 @@ function AuthPage() {
           resetAll();
           setStep(1);
         }}
-        className="absolute top-6 right-6 flex items-center text-3xl text-yellow-300  cursor-pointer font-extrabold "
+        className="absolute top-6 right-6 flex items-center text-2xl md:text-3xl text-yellow-300  cursor-pointer font-extrabold "
       >
-        <IoChevronBackCircle className="text-5xl mr-2 text-yellow-300 bg-white/98  rounded-full" />
+        <IoChevronBackCircle className="text-4xl md:text-5xl mr-2 text-yellow-300 bg-white/98  rounded-full" />
         Back to Role
       </span>
       {/* login and register form */}

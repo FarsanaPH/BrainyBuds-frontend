@@ -56,13 +56,13 @@ function DayWorksPage() {
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 p-6">
       {/* Header */}
       <div className="flex justify-between items-center mb-5">
-        <h2 className="text-2xl flex font-bold text-gray-800">
+        <h2 className="text-xl md:text-2xl flex font-bold text-gray-800">
           <TbCalendarSmile className="text-3xl text-yellow-600 mr-1" />
           {weekday} -{dayDisplay}
         </h2>
         <button
           onClick={() => navigate("/kids-homepage")}
-          className="flex items-center text-3xl text-green-600 cursor-pointer font-extrabold"
+          className="hidden md:flex items-center text-3xl text-green-600 cursor-pointer font-extrabold"
         >
           <IoChevronBackCircle className="text-5xl text-green-700 rounded-full" />
           Back to Home
@@ -70,8 +70,8 @@ function DayWorksPage() {
       </div>
 
       {/* Work */}
-      <div className="px-40">
-        <div className="w-full mx-auto bg-white rounded shadow p-6 mt-9">
+      <div className="md:px-16 lg:px-40">
+        <div className="w-full mx-auto bg-white rounded shadow md:p-6 mt-9">
           {/* heading date */}
           {/* <h2 className="text-2xl font-bold text-gray-800 mb-5">
            {weekday} -{dayDisplay}
@@ -82,7 +82,7 @@ function DayWorksPage() {
             <p>No homework for this day.</p>
           ) : (
             quizzes.map((q) => (
-              <div key={q.id} className="border border-gray-300 bg-gray-50 shadow p-4 mb-4 rounded ">
+              <div key={q.id} className="border border-gray-300 bg-gray-50 shadow p-2 md:p-4 mb-4 rounded ">
 
                 <div className="flex justify-between items-center mb-1">
                   <h4 className="font-semibold">{q.title}</h4>

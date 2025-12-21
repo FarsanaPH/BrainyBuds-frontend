@@ -4,8 +4,8 @@
     top: 56%;
     left: 68%;
     width: 10%;
-   
-    
+
+
 }
 
 #lion {
@@ -81,7 +81,7 @@
     bottom: 73%;
     left: 21%;
     width: 15vw;
-   
+
 }
 
 #WoodenBoard {
@@ -91,15 +91,29 @@
     height: 30%;
 }
 
-#WoodenWriting{
+#WoodenWriting {
     position: absolute;
-    top:16%;
+    top: 16%;
     left: 9%;
     width: 16%;
     height: 30%;
-    z-index: 60;
+    z-index: 30;
 
 }
+
+#floating-panel {
+    position: fixed;
+    right: 20px;
+    top: 40vh;
+    width: 284px;
+    z-index: 30;
+
+    max-height: 45vh;
+    height: auto;
+    overflow-y: auto;
+    /* scroll if content long */
+}
+
 
 #Leaves {
 
@@ -152,11 +166,7 @@
         left: 2%;
     }
 
-    #WoodenBoard {
-        width: 35vw;
-        top: 18%;
-        left: 4%;
-    }
+
 
     #Board1 {
         left: 55%;
@@ -216,20 +226,42 @@
         transform: rotate(-60deg);
     }
 
+    #WoodenBoard {
+        width: 35vw;
+        top: 18%;
+        left: 4%;
+    }
+
+    #WoodenWriting {
+        position: absolute;
+        top: 16%;
+        left: 9.8%;
+        width: 1%;
+        height: 30%;
+        z-index: 30;
+
+    }
+
+
+    #floating-panel {
+        right: 12px;
+        top: 45vh;
+        width: 260px;
+
+        max-height: 45vh;
+        height: auto;
+        overflow-y: auto;
+    }
+
+
+
     #Leaf {
 
         display: none;
 
     }
-    #WoodenWriting{
-    position: absolute;
-    top:16%;
-    left: 9.8%;
-    width: 1%;
-    height: 30%;
-    z-index: 60;
 
-}
+
 }
 
 /* Mobile (max width 768px) */
@@ -244,7 +276,7 @@
 
     }
 
-    #Giraffe{
+    #Giraffe {
         display: none;
     }
 
@@ -268,16 +300,14 @@
         left: 2%;
     }
 
-    #WoodenWriting{
-    /* position: absolute; */
-    top:16%;
-    left: 9.8%;
-    width: 50%;
-    height: 30%;
-    z-index: 60;
-    
-
-}
+    #WoodenWriting {
+        position: absolute;
+        top: 33%;
+        left: 6%;
+        width: 30%;
+        height: auto;
+        z-index: 30;
+    }
 
     #Board1 {
         left: 55%;
@@ -337,10 +367,26 @@
         transform: rotate(-40deg);
     }
 
+    #floating-panel {
+        right: 12px;
+        top: 88vh;
+        width: 200px;
+        width: 75%;
+        max-width: 255px;
+        z-index: 30;
+
+        max-height: 10.5vh;
+        height: auto;
+        overflow-y: auto;
+       
+    }
+
     #Leaf {
 
         display: none;
 
     }
+
+    
 
 }

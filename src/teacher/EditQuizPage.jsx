@@ -97,18 +97,19 @@ function EditQuizPage() {
   };
 
   return (
-    <div className="p-6">
+    <div className="md:p-6  pb-1">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-green-600">Edit Quiz</h2>
+        <h2 className="px-12 py-2.5 md:px-0 md:py-0 text-2xl font-bold text-green-600">Edit Quiz</h2>
         <button
           onClick={() => navigate("/manage-quiz")}
-          className="flex items-center text-lg gap-1 text-black"
+          className="hidden md:flex items-center text-lg gap-1 text-black"
         >
           <IoChevronBack size={22} /> Back
         </button>
       </div>
-      <div className="space-y-3">
+
+      <div className="space-y-3 px-4 md:px-0">
         <input
           className="p-2 w-full rounded shadow bg-white text-gray-500"
           placeholder="Enter Quiz Title"
@@ -116,7 +117,7 @@ function EditQuizPage() {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <select
             value={grade}
             onChange={(e) => setGrade(e.target.value)}
@@ -144,7 +145,7 @@ function EditQuizPage() {
           />
         </div>
 
-        <div>
+        <div >
           <h3 className="font-semibold text-lg mt-8 text-gray-500">Questions</h3>
           {questions.map((q, idx) => (
             <div key={q.id} className=" bg-white p-5 rounded-lg shadow my-3">
@@ -191,7 +192,7 @@ function EditQuizPage() {
             </div>
           ))}
 
-          <div className="flex gap-3 mt-6">
+          <div className="flex gap-3 mt-6 mb-23 md:mb-0">
             <button
               type="button"
               onClick={addQuestion}

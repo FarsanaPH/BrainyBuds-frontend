@@ -34,13 +34,13 @@ function QuizReviewPage() {
   if (!quiz || !attempt) return <p className="p-6">Loading review…</p>;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 px-10 py-5">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 px-5 md:px-10 py-5">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-800">{quiz.title}</h2>
         <button
           onClick={() => navigate(`/day-work/${quiz.scheduledDate.slice(0, 10)}`)}
-          className="flex items-center text-3xl text-green-600 font-extrabold"
+          className="hidden md:flex items-center text-3xl text-green-600 font-extrabold"
         >
           <IoChevronBackCircle className="text-5xl text-green-700 rounded-full" />
           Back to Board
@@ -74,7 +74,7 @@ function QuizReviewPage() {
       </div>
 
       {/* Review Section */}
-      <div className="px-40">
+      <div className="md:px-16 lg:px-40">
       <div className="w-full mx-auto bg-white shadow-lg rounded-2xl p-6 space-y-6">
         <h3 className="text-xl font-bold text-gray-800">Review Your Answers</h3>
 

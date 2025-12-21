@@ -61,19 +61,19 @@ function ContactPage() {
                     style={{ zIndex: 99999 }}
                 />
 
-                {/* Back to Role Selection */}
+                {/* Back to Home */}
                 <span
                     onClick={() => {
                         navigate("/")
                     }}
-                    className="absolute top-6 right-6 flex items-center text-3xl text-green-300  cursor-pointer font-extrabold "
+                    className="hidden absolute top-6 right-6 md:flex items-center text-3xl text-yellow-200  cursor-pointer font-extrabold "
                 >
-                    <IoChevronBackCircle className="text-5xl mr-2 text-green-300 bg-white/98  rounded-full" />
+                    <IoChevronBackCircle className="text-5xl mr-2 text-yellow-300 bg-white/98  rounded-full" />
                     Back to Home
                 </span>
 
                 <div className="max-w-6xl w-full">
-                    <h1 className="text-5xl pt-10 font-bold text-center text-green-100 drop-shadow-xl mb-4 flex items-center justify-center gap-3">
+                    <h1 className="text-5xl md:pt-10 font-bold text-center text-green-100 drop-shadow-xl mb-4 flex items-center justify-center gap-3">
                         <img
                             src="https://cdn-icons-png.flaticon.com/512/5906/5906405.png"
                             alt="Tree Icon"
@@ -88,7 +88,7 @@ function ContactPage() {
                     </h1>
 
                     <p className="text-center text-green-200 mb-16 text-lg tracking-wide">
-                        Speak to us through the totems of the wild 🐒✨
+                        Speak to us through the totems of the wild
                     </p>
 
                     {/* Contact Info Cards */}
@@ -105,7 +105,7 @@ function ContactPage() {
                             {
                                 icon: <FaEnvelope className="text-2xl" />,
                                 title: "Email Us",
-                                info: "hello@brainybuds.com",
+                                info: "info@brainybuds.com",
                                 border: "border-yellow-700",
                                 bg: "bg-yellow-100",
                                 text: "text-yellow-900",

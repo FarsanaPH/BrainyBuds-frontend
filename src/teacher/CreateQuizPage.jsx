@@ -82,9 +82,9 @@ function CreateQuizPage() {
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl mb-4 font-bold text-green-500">Create Quiz</h2>
-      <div className="space-y-3">
+    <div className="md:p-6">
+      <h2 className="px-12 py-2.5 md:px-0 md:py-0 text-2xl mb-4 font-bold text-green-600">Create Quiz</h2>
+      <div className="space-y-3 px-4 md:px-0">
         <input
           className="p-2 w-full rounded shadow bg-white text-gray-500"
           placeholder="Enter Quiz Title"
@@ -92,7 +92,7 @@ function CreateQuizPage() {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap  gap-2">
           <select
             value={grade}
             onChange={(e) => setGrade(e.target.value)}

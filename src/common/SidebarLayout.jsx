@@ -108,7 +108,7 @@ function SidebarLayout() {
             <div className="flex-1 overflow-y-auto relative">
                 {/* Toggle bar for mobile */}
                 <button
-                    className="absolute top-4  left-4 text-yellow-900 md:hidden"
+                    className="absolute  top-4  left-4 text-green-950 md:hidden"
                     onClick={() => setIsSidebarOpen(true)}
                 >
                     <GiHamburgerMenu size={24} />

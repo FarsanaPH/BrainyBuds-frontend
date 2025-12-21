@@ -40,12 +40,12 @@ function ParentDashboardPage() {
 
   return (
     <div className="bg-yellow-50 min-h-screen">
-      <div className="p-6">
-      <h2 className="text-xl font-bold text-green-600 mb-4">Get Daily Updates</h2>
+      <div className="md:p-6">
+      <h2 className="px-12 py-3 md:px-0 md:py-0 text-xl font-bold text-green-600 mb-4">Get Daily Updates</h2>
       {notes.length === 0 ? (
-        <p className="text-gray-500">No updates yet.</p>
+        <p className="text-gray-500 px-4 md:px-0">No updates yet.</p>
       ) : (
-        <ul className="space-y-3">
+        <ul className="space-y-3 px-4 md:px-0">
           {notes.map((n, i) => (
             <li key={i} className="bg-white shadow p-3 rounded">
               <p className="text-sm text-gray-500">

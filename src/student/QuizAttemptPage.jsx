@@ -84,13 +84,13 @@ function QuizAttemptPage() {
   if (!quiz) return <p className="p-6 text-lg">Loading quiz...</p>;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 px-10 py-5">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 px-5 md:px-10 py-5">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-800">{quiz.title}</h2>
         <button
           onClick={() => navigate(`/day-work/${quiz.scheduledDate.slice(0, 10)}`)}
-          className="flex items-center text-3xl text-green-600 cursor-pointer font-extrabold"
+          className="hidden md:flex items-center text-3xl text-green-600 cursor-pointer font-extrabold"
         >
           <IoChevronBackCircle className="text-5xl text-green-600 rounded-full" />
           Back to Board
@@ -104,7 +104,7 @@ function QuizAttemptPage() {
       </div>
 
       {/* Attempt Questions */}
-      <div className="px-40">
+      <div className="md:px-16 lg:px-40">
         <div className="w-full mx-auto bg-white shadow-lg rounded-2xl p-6 space-y-6">
           <h1 className="text-2xl font-extrabold text-amber-300/90 text-center text-shadow-2xs">
             QUIZ TIME
